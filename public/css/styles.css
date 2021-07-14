@@ -23,6 +23,11 @@ body{
 	font-family: "Montserrat";
 }
 
+.sub-content{
+	color: black;
+	padding: 2%;
+	margin-left: 7%;
+}
 #title{
 	background-color: #FFC107;
 	color: #fff;
@@ -32,9 +37,9 @@ body{
 	padding: 3%  15% 10%;
 }
 
-.navbar-brand{
+.navbar-brands{
 	font-family: "Ubuntu";
-	font-size: 2.5;
+	padding: 5%;
 	font-weight: bold;
 	font-style: italic;
 	color : black;
@@ -59,21 +64,19 @@ body{
 	font-family: "Montserrat-Light";
 }
 
-.navbar{
+/*.navbar{
 	padding: 0 0 4.5rem;
 	margin-bottom: 40px;
-}
-.download-button{
-	margin: 5% 3% 5% 0%;
-}
-.But1{
-	margin-left: 45px;
-}
-.title-img{
-	width: 40%;
+}*/
+
+
+/*.title-img{
+	size: 50%;
+	height: 50%;
+	width: 30%;
 	position: absolute;
 	right: 30%;
-}
+}*/
 
 .icon{
 	color: #ef8172;
