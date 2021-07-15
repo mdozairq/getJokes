@@ -23,6 +23,9 @@ body{
 	font-family: "Montserrat";
 }
 
+.joke{
+	color: red;
+}
 .sub-content{
 	color: black;
 	padding: 2%;

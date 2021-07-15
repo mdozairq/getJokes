@@ -10,6 +10,8 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
+app.set('view engine', 'ejs'); 
+
 
 app.get("/", function(req, res){
 	res.sendFile(__dirname+"/index.html");
@@ -36,14 +38,17 @@ app.post("/", function(req, res){
 				const joke2= jokeData.delivery;
 				const jokes= jokeData.joke;
 				const types = jokeData.type;
-				res.write("<h1> JOKES </h1>");
+				//res.write("<h1> JOKES </h1>");
 				if(types === 'twopart'){
-					res.write("<p>Person 1 : "+joke1+"\n</p>");
-					res.write("<p>Person 2 : "+joke2+"</p>");
+					//res.write("<p>Person 1 : "+joke1+"\n</p>");
+					//res.write("<p>Person 2 : "+joke2+"</p>");
+					res.render("getJoke", {gJokes: joke1+"\n"+joke2});
+					//res.render("getJoke", {gJokes2: joke2});
 				}
 				else
-					res.write(jokes);
-					res.send();
+					res.render("getJoke", {gJokes: jokes});
+					//res.write(jokes);
+					//res.send();
 		 });
 		});
 			}
@@ -57,14 +62,17 @@ app.post("/", function(req, res){
 			const joke2= jokeData.delivery;
 			const jokes= jokeData.joke;
 			const types = jokeData.type;
-			res.write("<h1> JOKES </h1>");
+			//res.write("<h1> JOKES </h1>");
 			if(types === 'twopart'){
-				res.write("<p>Person 1 : "+joke1+"\n</p>");
-				res.write("<p>Person 2 : "+joke2+"</p>");
+				//res.write("<p>Person 1 : "+joke1+"\n</p>");
+				//res.write("<p>Person 2 : "+joke2+"</p>");
+				res.render("getJoke", {gJokes: joke1+"\n"+joke2});
+				//res.render("getJoke", {gJokes2: joke2});
 			}
 			else
-				res.write(jokes);
-				res.send();
+				res.render("getJoke", {gJokes: jokes});
+				//res.write(jokes);
+				//res.send();
 		 });
 		});
 	  }
