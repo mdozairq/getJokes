@@ -43,11 +43,12 @@
 				<h4>Type of Joke:</h4>
 				</div>
 				<div class="card-body">
-					<input type="radio" id="any" name="jokeType" value="Any">
+					<div class="form-check">
+						<input type="radio" id="any" name="jokeType" value="Any">
 				  	<label for="any">Any</label><br>
 				  	<input type="radio" id="programming" name="jokeType" value="Programming">
 				  	<label for="programming">Programming</label><br>  
-				 	<input type="radio" id="dark" name="jokeType" value="Dark">
+				 		<input type="radio" id="dark" name="jokeType" value="Dark">
 				  	<label for="dark">Dark</label><br>
 				  	<input type="radio" id="spooky" name="jokeType" value="Spooky">
 				  	<label for="spooky">Spooky</label><br>
@@ -57,17 +58,18 @@
 				  	<label for="misc">Misc</label><br>
 			  </div>
 		  </div>
-
+		</div>
 		  <div class="col-lg-6 col-md-6">
 		  	<div class="card-header">
 		  		<h4>Remove from Joke:</h4>
 			</div>
 			<div class="card-body">
+				<div class="form-check">
 			   	<input type="checkbox" id="nsfw" name="removeType" value="nsfw">
 			  	<label for="nsfw">nsfw</label><br>
 			  	<input type="checkbox" id="religious" name="removeType" value="religious">
 			  	<label for="religious">religious</label><br>  
-			 	<input type="checkbox" id="political" name="removeType" value="political">
+			 		<input type="checkbox" id="political" name="removeType" value="political">
 			  	<label for="political">political</label><br>
 			  	<input type="checkbox" id="racist" name="removeType" value="racist">
 			  	<label for="racist">racist</label><br>
@@ -75,11 +77,12 @@
 			  	<label for="sexist">Sexist</label><br>
 			  	<input type="checkbox" id="explicit" name="removeType" value="explicit">
 			  	<label for="explicit">explicit</label><br>
+			  	</div>
 			  </div>
 			  </div>
 	  	</div>
 	  	<div class="card-footer">
-	  		<input class="but-clr" type="submit" value="Submit">
+	  		<button class="btn btn-primary btn-lg but-clr"  type="submit" value="Submit">Generate</button>
 	  </div>
 	  </form>
 	</section>

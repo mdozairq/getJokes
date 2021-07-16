@@ -42,7 +42,7 @@ body{
 
 .navbar-brands{
 	font-family: "Ubuntu";
-	padding: 5%;
+	padding: 2%;
 	font-weight: bold;
 	font-style: italic;
 	color : black;
@@ -67,20 +67,6 @@ body{
 	font-family: "Montserrat-Light";
 }
 
-/*.navbar{
-	padding: 0 0 4.5rem;
-	margin-bottom: 40px;
-}*/
-
-
-/*.title-img{
-	size: 50%;
-	height: 50%;
-	width: 30%;
-	position: absolute;
-	right: 30%;
-}*/
-
 .icon{
 	color: #ef8172;
 	margin-bottom: 1rem;
@@ -91,6 +77,8 @@ body{
 
 .but-clr{
 	background-color: #FFC107;
+	color: black;
+	hover: green;
 }
 
 #types{
@@ -123,7 +111,3 @@ body{
 
 }
 
-.social{
-	padding: 4px 2px;
-	color: gray;
-}

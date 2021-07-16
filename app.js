@@ -19,70 +19,35 @@ app.get("/", function(req, res){
 
 try{
 app.post("/", function(req, res){
-	const empty = req;
-	const Nonempty = req.body;
-	console.log(empty);
+	var url="";
 	console.log("post request Recieved");
-	if(req.body == Nonempty)
-	{
+			console.log(req.body);
 			const type = req.body.jokeType;
 			const rmType = req.body.removeType;
-			//console.log(rmType);
 			if(rmType === undefined){
-				https.get("https://v2.jokeapi.dev/joke/"+type, function(response){
+				var url="https://v2.jokeapi.dev/joke/"+type;
+			}
+			else
+			{
+				var url="https://v2.jokeapi.dev/joke/"+type+"?blacklistFlags="+rmType;
+			}
+
+			https.get(url, function(response){
 				console.log(response.statusCode);
 				response.on("data", function(data){
 				const jokeData = JSON.parse(data);
-				//console.log(jokeData);
+				console.log(jokeData);
 				const joke1= jokeData.setup;
 				const joke2= jokeData.delivery;
 				const jokes= jokeData.joke;
 				const types = jokeData.type;
-				//res.write("<h1> JOKES </h1>");
 				if(types === 'twopart'){
-					//res.write("<p>Person 1 : "+joke1+"\n</p>");
-					//res.write("<p>Person 2 : "+joke2+"</p>");
-					res.render("getJoke", {gJokes: joke1+"\n"+joke2});
-					//res.render("getJoke", {gJokes2: joke2});
-				}
+						res.render("getJoke", {gJokes: joke1+"\n"+joke2});
+					}
 				else
 					res.render("getJoke", {gJokes: jokes});
-					//res.write(jokes);
-					//res.send();
-		 });
+			});
 		});
-			}
-			else{
-			https.get("https://v2.jokeapi.dev/joke/"+type+"?blacklistFlags="+rmType, function(response){
-			console.log(response.statusCode);
-			response.on("data", function(data){
-			const jokeData = JSON.parse(data);
-			//console.log(jokeData);
-			const joke1= jokeData.setup;
-			const joke2= jokeData.delivery;
-			const jokes= jokeData.joke;
-			const types = jokeData.type;
-			//res.write("<h1> JOKES </h1>");
-			if(types === 'twopart'){
-				//res.write("<p>Person 1 : "+joke1+"\n</p>");
-				//res.write("<p>Person 2 : "+joke2+"</p>");
-				res.render("getJoke", {gJokes: joke1+"\n"+joke2});
-				//res.render("getJoke", {gJokes2: joke2});
-			}
-			else
-				res.render("getJoke", {gJokes: jokes});
-				//res.write(jokes);
-				//res.send();
-		 });
-		});
-	  }
-	}
-	else{
-		//res.render('newjoke');
-		res.write("<h1> Please Select type of Jokes then Submit </h1>");
-		res.write("<p>Please Go Back and Try again</p>")
-	}
-	
 });
 }catch(error){
 	console.log("error occured", error);
@@ -101,4 +66,3 @@ app.listen(process.env.PORT || 3000, function () {
 	console.log("Server is running on the port 3000");
 });
 
-//heroku git:remote -a fierce-shelf-72438
