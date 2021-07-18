@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>GET JoKes</title>
 	<link rel="icon" href="/images/laughing1.ico">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/styles.css">
   <script defer src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
@@ -38,11 +38,15 @@
 	<div class="card">
   <div class="card-header">
     Joke:
+    <button class="btn" id="copy-btn" >Copy</button>
   </div>
   <div class="card-body">
     <blockquote class="blockquote mb-0">
-      <p class="joke">"<%= gJokes %>"</p>
+      <p id="joke">"<%= gJokes %>"</p>
       </blockquote>
+  </div>
+  <div class="cerd-footer" id="mobile-share">
+  		<button type="button" class="btn btn-outline-success"><a class="wa" href="whatsapp://"send?text= <%= gJokes %> data-action="share/whatsapp/share">Share on <i class="fab fa-whatsapp"></i></a></button>
   </div>
 </div>
 </section>
@@ -56,19 +60,20 @@
 				<h4>Type of Joke:</h4>
 				</div>
 				<div class="card-body">
-					<div class="form-check">
-						<input class="form-check-input" type="radio" id="any" name="jokeType" value="Any">
-				  	<label class="form-check-label" for="any">Any</label><br>
-				  	<input class="form-check-input" type="radio" id="programming" name="jokeType" value="Programming">
-				  	<label class="form-check-label" for="programming">Programming</label><br>  
-				 		<input class="form-check-input" type="radio" id="dark" name="jokeType" value="Dark">
-				  	<label class="form-check-label" for="dark">Dark</label><br>
-				  	<input class="form-check-input" type="radio" id="spooky" name="jokeType" value="Spooky">
-				  	<label class="form-check-label" for="spooky">Spooky</label><br>
-				  	<input class="form-check-input" type="radio" id="pun" name="jokeType" value="Pun">
-				  	<label class="form-check-label" for="pun">Pun</label><br>
-				  	<input class="form-check-input" type="radio" id="misc" name="jokeType" value="Miscellaneous">
-				  	<label class="form-check-label" for="misc">Misc</label><br>
+					<div class="list-group">
+						<label class="list-group-item" for="any">
+						<input class="form-check-input me-1" type="radio" id="any" name="jokeType" value="Any">Any</label>
+						<label class="list-group-item" for="programming">
+				  	<input class="form-check-input me-1" type="radio" id="programming" name="jokeType" value="Programming">
+				  	Programming</label>
+				  	<label class="list-group-item" for="dark">
+				 		<input class="form-check-input me-1" type="radio" id="dark" name="jokeType" value="Dark">Dark</label>
+				  	<label class="list-group-item" for="spooky">
+				  	<input class="form-check-input me-1" type="radio" id="spooky" name="jokeType" value="Spooky">Spooky</label>
+				  	<label class="list-group-item" for="pun">
+				  	<input class="form-check-input me-1" type="radio" id="pun" name="jokeType" value="Pun">Pun</label>
+				  	<label class="list-group-item" for="misc">
+				  	<input class="form-check-input me-1" type="radio" id="misc" name="jokeType" value="Miscellaneous">Misc</label>
 			  </div>
 		  </div>
 		</div>
@@ -77,19 +82,19 @@
 		  		<h4>Remove from Joke:</h4>
 			</div>
 			<div class="card-body">
-				<div class="form-check">
-			   	<input class="form-check-input" type="checkbox" id="nsfw" name="removeType" value="nsfw">
-			  	<label class="form-check-label" for="nsfw">nsfw</label><br>
-			  	<input class="form-check-input" type="checkbox" id="religious" name="removeType" value="religious">
-			  	<label class="form-check-label" for="religious">religious</label><br>  
-			 		<input class="form-check-input" type="checkbox" id="political" name="removeType" value="political">
-			  	<label class="form-check-label" for="political">political</label><br>
-			  	<input class="form-check-input" type="checkbox" id="racist" name="removeType" value="racist">
-			  	<label class="form-check-label" for="racist">racist</label><br>
-			  	<input class="form-check-input" type="checkbox" id="sexist" name="removeType" value="sexist">
-			  	<label class="form-check-label" for="sexist">Sexist</label><br>
-			  	<input class="form-check-input" type="checkbox" id="explicit" name="removeType" value="explicit">
-			  	<label class="form-check-label" for="explicit">explicit</label><br>
+				<div class="list-group">
+			  	<label class="list-group-item" for="nsfw">
+			   	<input class="form-check-input me-1" type="checkbox" id="nsfw" name="removeType" value="nsfw">nsfw</label>
+			  	<label class="list-group-item" for="religious">
+			  	<input class="form-check-input me-1" type="checkbox" id="religious" name="removeType" value="religious">religious</label>
+			  	<label class="list-group-item" for="political">
+			 		<input class="form-check-input me-1" type="checkbox" id="political" name="removeType" value="political">political</label>
+			  	<label class="list-group-item" for="racist">
+			  	<input class="form-check-input me-1" type="checkbox" id="racist" name="removeType" value="racist">racist</label>
+			  	<label class="list-group-item" for="sexist">
+			  	<input class="form-check-input me-1" type="checkbox" id="sexist" name="removeType" value="sexist">Sexist</label>
+			  	<label class="list-group-item" for="explicit">
+			  	<input class="form-check-input me-1" type="checkbox" id="explicit" name="removeType" value="explicit">explicit</label>
 			  	</div>
 			  </div>
 			  </div>
@@ -100,6 +105,8 @@
 	  </form>
 </section>
 <footer>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script type="text/javascript" src="jokes.js" charset="utf-8"></script> -->
 	<section id="footer">
 	  <div class="bottom-container">
 	  	  <a class="social" href="https://www.mymymoq27@gmail.com">Contact Us</a>|

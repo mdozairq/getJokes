@@ -17,11 +17,11 @@ app.get("/", function(req, res){
 	res.sendFile(__dirname+"/index.html");
 });
 
+
 try{
 app.post("/", function(req, res){
 	var url="";
 	console.log("post request Recieved");
-			console.log(req.body);
 			const type = req.body.jokeType;
 			const rmType = req.body.removeType;
 			if(rmType === undefined){
@@ -36,7 +36,7 @@ app.post("/", function(req, res){
 				console.log(response.statusCode);
 				response.on("data", function(data){
 				const jokeData = JSON.parse(data);
-				console.log(jokeData);
+				//console.log(jokeData);
 				const joke1= jokeData.setup;
 				const joke2= jokeData.delivery;
 				const jokes= jokeData.joke;
@@ -53,6 +53,7 @@ app.post("/", function(req, res){
 	console.log("error occured", error);
 };
 
+
 app.get("/t&c", function(req, res){
 	res.sendFile(__dirname+"/t&c.html");
 });
@@ -60,6 +61,7 @@ app.get("/t&c", function(req, res){
 app.get("/privacy", function(req, res){
 	res.sendFile(__dirname+"/privacy.html");
 });
+
 
 app.listen(process.env.PORT || 3000, function () {
 	// body...

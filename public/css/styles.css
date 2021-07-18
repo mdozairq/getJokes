@@ -23,8 +23,11 @@ body{
 	font-family: "Montserrat";
 }
 
-.joke{
-	color: red;
+.view{
+	display: block;
+}
+#joke{
+	color: #b82929;
 }
 .sub-content{
 	color: black;
@@ -116,4 +119,36 @@ body{
 	color: gray;
 }
 
+.wa{
+	color: gray;
+	text-decoration: none;
+}
 
+.wa:hover{
+	color: black;
+}
+
+#copy-btn {
+  background-color: white;
+  border: none;
+  color: black;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: auto;
+  border-radius: 50%;
+  float: right;
+}
+
+@media screen and (min-width: 900px){
+	#mobile-share{
+		visibility: hidden;
+		clear: both;
+		float: left;
+		margin: 10px auto 5px 20px;
+		width: 50%;
+		display: none;
+	}
+}
