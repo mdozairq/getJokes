@@ -142,7 +142,7 @@ body{
   float: right;
 }
 
-@media screen and (min-width: 900px){
+@media screen and (min-width: 1200px){
 	#mobile-share{
 		visibility: hidden;
 		clear: both;
