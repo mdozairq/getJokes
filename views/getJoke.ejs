@@ -1,121 +1,178 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="utf-8">
 	<title>GET JoKes</title>
 	<link rel="icon" href="/images/laughing1.ico">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/styles.css">
-  <script defer src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	
+	<script defer src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+
 </head>
+
 <body>
 	<section id="title">
-    <div class="container-fluid">
-    	<nav class="navbar navbar-expand-lg ">
-			    <a class="navbar-brands"style="font-size: 3.0;" href="/"><i class="fas fa-grin-tears"></i> getJokes</a>
-	    </nav>
+		<div class="container-fluid">
+			<nav class="navbar navbar-expand-lg ">
+				<a class="navbar-brands" style="font-size: 3.0;" href="/"><i class="fas fa-grin-tears"></i> getJokes</a>
+			</nav>
 
-    <!-- Title -->
+			<!-- Title -->
 
 
-    <div class= "row">
-      <div class="col-lg-6 col-md-6">
-	  <h1>WELCOME JoKe Hub,</h1>
-	  <h1> Let's Laugh!</h1>
-	  <p class="sub-content">This is Random jokes Generator!</p>
-        	</div>
-      
-    <div class="col-lg-6 col-md-6">
-      <img class="title-img" src="/images/GJ.png" alt="Laughing-boy">
-    </div>
-</div>
-</section>
-
-<section>
-	<div class="card">
-  <div class="card-header">
-    Joke:
-    <button class="btn" id="copy-btn" >Copy</button>
-  </div>
-  <div class="card-body">
-    <blockquote class="blockquote mb-0">
-      <p id="joke">"<%= gJokes %>"</p>
-      </blockquote>
-  </div>
-  <div class="cerd-footer" id="mobile-share">
-  		<button type="button" class="btn btn-outline-success"><a class="wa" href="whatsapp://"send?text= <%= gJokes %> data-action="share/whatsapp/share">Share on <i class="fab fa-whatsapp"></i></a></button>
-  </div>
-</div>
-</section>
-
-<section id="types">
-	<h2 style="padding-bottom: 4%;">Please select your Joke type:</h2>
-	<form action="/" method="post">
-		<div class="row">
-			<div class="col-lg-6 col-md-6">
-				<div class="card-header">
-				<h4>Type of Joke:</h4>
+			<div class="row">
+				<div class="col-lg-6 col-md-6">
+					<h1>WELCOME JoKe Hub,</h1>
+					<h1> Let's Laugh!</h1>
+					<p class="sub-content">This is Random jokes Generator!</p>
 				</div>
-				<div class="card-body">
-					<div class="list-group">
-						<label class="list-group-item" for="any">
-						<input class="form-check-input me-1" type="radio" id="any" name="jokeType" value="Any">Any</label>
-						<label class="list-group-item" for="programming">
-				  	<input class="form-check-input me-1" type="radio" id="programming" name="jokeType" value="Programming">
-				  	Programming</label>
-				  	<label class="list-group-item" for="dark">
-				 		<input class="form-check-input me-1" type="radio" id="dark" name="jokeType" value="Dark">Dark</label>
-				  	<label class="list-group-item" for="spooky">
-				  	<input class="form-check-input me-1" type="radio" id="spooky" name="jokeType" value="Spooky">Spooky</label>
-				  	<label class="list-group-item" for="pun">
-				  	<input class="form-check-input me-1" type="radio" id="pun" name="jokeType" value="Pun">Pun</label>
-				  	<label class="list-group-item" for="misc">
-				  	<input class="form-check-input me-1" type="radio" id="misc" name="jokeType" value="Miscellaneous">Misc</label>
-			  </div>
-		  </div>
-		</div>
-		  <div class="col-lg-6 col-md-6">
-		  	<div class="card-header">
-		  		<h4>Remove from Joke:</h4>
+
+				<div class="col-lg-6 col-md-6">
+					<img class="title-img" src="/images/GJ.png" alt="Laughing-boy">
+				</div>
+			</div>
+	</section>
+
+	<section>
+		<div class="card">
+			<div class="card-header">
+				Joke:
+				<button class="btn" id="copy-btn" onClick="copyLink()">Copy</button>
 			</div>
 			<div class="card-body">
-				<div class="list-group">
-			  	<label class="list-group-item" for="nsfw">
-			   	<input class="form-check-input me-1" type="checkbox" id="nsfw" name="removeType" value="nsfw">nsfw</label>
-			  	<label class="list-group-item" for="religious">
-			  	<input class="form-check-input me-1" type="checkbox" id="religious" name="removeType" value="religious">religious</label>
-			  	<label class="list-group-item" for="political">
-			 		<input class="form-check-input me-1" type="checkbox" id="political" name="removeType" value="political">political</label>
-			  	<label class="list-group-item" for="racist">
-			  	<input class="form-check-input me-1" type="checkbox" id="racist" name="removeType" value="racist">racist</label>
-			  	<label class="list-group-item" for="sexist">
-			  	<input class="form-check-input me-1" type="checkbox" id="sexist" name="removeType" value="sexist">Sexist</label>
-			  	<label class="list-group-item" for="explicit">
-			  	<input class="form-check-input me-1" type="checkbox" id="explicit" name="removeType" value="explicit">explicit</label>
-			  	</div>
-			  </div>
-			  </div>
-	  	</div>
-	  	<div class="card-footer">
-	  		<button class="btn btn-primary btn-lg but-clr"  type="submit" value="Submit">Generate</button>
-	  </div>
-	  </form>
-</section>
-<footer>
-	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script type="text/javascript" src="jokes.js" charset="utf-8"></script> -->
-	<section id="footer">
-	  <div class="bottom-container">
-	  	  <a class="social" href="https://www.mymymoq27@gmail.com">Contact Us</a>|
-		    <a class="social" href="/privacy">Privacy Policy</a>|
-		    <a class="social" href="/t&c">Terms & Conditions</a>
-		  <p class="copy-right">© 2021 Qayam.Co.</p>
+				<blockquote class="blockquote mb-0">
+					<p id="joke">"<%= gJokes %>"</p>
+				</blockquote>
+			</div>
+			<div class="cerd-footer" id="mobile-share">
+				<button type="button" class="btn btn-outline-success"><a class="wa" onclick="share()">Share on <i
+							class="fab fa-whatsapp"></i></a></button>
+			</div>
 		</div>
 	</section>
-</footer>
+
+	<section id="types">
+		<h2 style="padding-bottom: 4%;">Please select your Joke type:</h2>
+		<form action="/" method="post">
+			<div class="row">
+				<div class="col-lg-6 col-md-6">
+					<div class="card-header">
+						<h4>Type of Joke:</h4>
+					</div>
+					<div class="card-body">
+						<div class="list-group">
+							<label class="list-group-item" for="any">
+								<input class="form-check-input me-1" type="radio" id="any" name="jokeType"
+									value="Any">Any</label>
+							<label class="list-group-item" for="programming">
+								<input class="form-check-input me-1" type="radio" id="programming" name="jokeType"
+									value="Programming">
+								Programming</label>
+							<label class="list-group-item" for="dark">
+								<input class="form-check-input me-1" type="radio" id="dark" name="jokeType"
+									value="Dark">Dark</label>
+							<label class="list-group-item" for="spooky">
+								<input class="form-check-input me-1" type="radio" id="spooky" name="jokeType"
+									value="Spooky">Spooky</label>
+							<label class="list-group-item" for="pun">
+								<input class="form-check-input me-1" type="radio" id="pun" name="jokeType"
+									value="Pun">Pun</label>
+							<label class="list-group-item" for="misc">
+								<input class="form-check-input me-1" type="radio" id="misc" name="jokeType"
+									value="Miscellaneous">Misc</label>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6">
+					<div class="card-header">
+						<h4>Remove from Joke:</h4>
+					</div>
+					<div class="card-body">
+						<div class="list-group">
+							<label class="list-group-item" for="nsfw">
+								<input class="form-check-input me-1" type="checkbox" id="nsfw" name="removeType"
+									value="nsfw">nsfw</label>
+							<label class="list-group-item" for="religious">
+								<input class="form-check-input me-1" type="checkbox" id="religious" name="removeType"
+									value="religious">religious</label>
+							<label class="list-group-item" for="political">
+								<input class="form-check-input me-1" type="checkbox" id="political" name="removeType"
+									value="political">political</label>
+							<label class="list-group-item" for="racist">
+								<input class="form-check-input me-1" type="checkbox" id="racist" name="removeType"
+									value="racist">racist</label>
+							<label class="list-group-item" for="sexist">
+								<input class="form-check-input me-1" type="checkbox" id="sexist" name="removeType"
+									value="sexist">Sexist</label>
+							<label class="list-group-item" for="explicit">
+								<input class="form-check-input me-1" type="checkbox" id="explicit" name="removeType"
+									value="explicit">explicit</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="card-footer">
+				<button class="btn btn-primary btn-lg but-clr" type="submit" value="Submit">Generate</button>
+			</div>
+		</form>
+	</section>
+	<footer>
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script type="text/javascript" src="jokes.js" charset="utf-8"></script> -->
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"> -->
+		</script>
+
+		<script type="text/javascript">
+
+			// Function to share on whatsapp
+			function share() {
+
+				// Getting user input
+				var message = document.getElementById("joke");
+
+				// Opening URL
+				window.open(
+					"whatsapp://send?text=" + message,
+
+					// This is what makes it 
+					// open in a new window.
+					'_blank'
+				);
+			}
+		</script>
+		<script>
+			function copyLink() {
+				let copyText = document.getElementById("joke")
+
+				var selection = window.getSelection();
+
+				var range = document.createRange();
+
+				range.selectNodeContents(copyText);
+
+				selection.removeAllRanges();
+
+				selection.addRange(range);
+
+				document.execCommand('copy');
+			}
+		</script>
+		<section id="footer">
+			<div class="bottom-container">
+				<a class="social" href="https://www.mymymoq27@gmail.com">Contact Us</a>|
+				<a class="social" href="/privacy">Privacy Policy</a>|
+				<a class="social" href="/t&c">Terms & Conditions</a>
+				<p class="copy-right">© 2021 Qayam.Co.</p>
+			</div>
+		</section>
+	</footer>
 
 </body>
+
 </html>
